@@ -1,34 +1,40 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [acumulator, setAcumulator] = useState("")
+  
+  function evaluate(){
+    setAcumulator(eval(acumulator))
+  }
+  
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      <h1>CALCULADORA</h1>
+      <div className='visor'>{acumulator}</div>
+      <div className="teclado">
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"7")}}>7</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"8")}}>8</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"9")}}>9</div>
+        <div className='tecla'  onClick={()=>{setAcumulator(acumulator.slice(0, -1))}}>Del</div>
+        <div className='tecla' onClick={()=>{setAcumulator("")}}>Clear</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"4")}}>4</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"5")}}>5</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"6")}}>6</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"*")}}>*</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"/")}}>/</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"1")}}>1</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"2")}}>2</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"3")}}>3</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"+")}}>+</div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"-")}}>-</div>
+        <div className='tecla'></div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+"0")}}>0</div>
+        <div className='tecla'></div>
+        <div className='tecla' onClick={()=>{setAcumulator(acumulator+".")}}>.</div>
+        <div className='tecla' onClick={evaluate}>=</div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
