@@ -11,10 +11,8 @@
 
  font-size: 80px;
  
-
-
 }
-.container{
+.caixa{
   background-color: rgb(173, 173, 173);
 
   height: 800px;
@@ -44,7 +42,6 @@
 
   border: solid black;
 }
-
-h1{
-    font-weight: 900;
+.h1{
+  font-weight: bold;
 }
